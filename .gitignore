@@ -1,0 +1,24 @@
+# Ignore all node_modules in project (any folder)
+**/node_modules/
+
+# Ignore all .env files anywhere
+**/*.env
+
+# Build folders
+**/build/
+**/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Cache
+.cache/
+.tmp/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
