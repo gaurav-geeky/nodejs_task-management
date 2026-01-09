@@ -1,0 +1,50 @@
+.report-page {
+    padding: 20px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.page-subtitle {
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+/* CARD */
+.report-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* TABLE */
+.report-table thead th {
+    background: #0d9488;
+    /* teal */
+    color: white;
+    padding: 14px;
+    font-size: 0.95rem;
+    border: none;
+}
+
+.report-table tbody td {
+    padding: 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* BUTTON */
+.reassign-btn {
+    background-color: #ef4444;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+}
+
+.reassign-btn:hover {
+    background-color: #dc2626;
+}

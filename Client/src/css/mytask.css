@@ -1,0 +1,65 @@
+/* Page Title */
+.emp-task-header {
+  background: linear-gradient(90deg, #7b2ff7, #00c6ff);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.emp-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* Table container */
+.emp-table-container {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.emp-task-table {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #dcdcdc;
+}
+
+.emp-task-table thead {
+  background: #7b2ff7;
+  color: white;
+  height: 55px;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.emp-task-table tbody tr:hover {
+  background: rgba(123, 47, 247, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+/* Priority Tag Styling */
+.priority-tag {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.priority-tag.low {
+  background: #1abc9c;
+}
+
+.priority-tag.medium {
+  background: #f1c40f;
+}
+
+.priority-tag.high {
+  background: #e74c3c;
+}

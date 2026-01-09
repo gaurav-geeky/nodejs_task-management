@@ -1,0 +1,114 @@
+/* ===================== PAGE WRAPPER (FULL HEIGHT) ===================== */
+.page-container {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Page Title */
+.page-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+
+
+/*    this is report jsx table css  */
+
+/* ===================== TABLE RESPONSIVE WRAPPER ===================== */
+.table-responsive-wrapper {
+    width: 100%;
+    flex: 1;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+
+    overflow-y: auto;
+    overflow-x: auto;    /* IMPORTANT: enables left-right scroll */
+    white-space: nowrap; /* Prevents column squishing */
+}
+
+/* Scrollbar style */
+.table-responsive-wrapper::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 10px;
+}
+
+/* ===================== TABLE STYLE ===================== */
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    min-width: 900px; /* ensures scrolling on small screens */
+}
+
+/* Header */
+.table-custom thead th {
+    background-color: #7b2ff7;
+    color: white;
+    padding: 14px;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+/* Body */
+.table-custom tbody tr {
+    background: #f6faff;
+}
+
+.table-custom td {
+    padding: 14px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover */
+.table-custom tbody tr:hover {
+    background: #e9f6ff;
+    transition: 0.2s;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1024px) {
+    .page-container {
+        padding: 15px;
+    }
+    .table-responsive-wrapper {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container h1 {
+        font-size: 1.6rem;
+    }
+    /* force scroll */
+    .table-custom {
+        min-width: 800px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-container {
+        padding: 10px;
+    }
+    .table-responsive-wrapper {
+        padding: 8px;
+    }
+    .table-custom {
+        min-width: 700px;
+    }
+}

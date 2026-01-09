@@ -1,0 +1,141 @@
+/* ============================================================
+   ADMIN HOME PAGE – RESPONSIVE + CLEAN + NO EXTRA TAGS
+   Works only with your JSX: #adminhome, #adminhomecontainer,
+   .adminhometask
+============================================================ */
+
+/* Remove unwanted horizontal scroll */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* -------- Main Section -------- */
+#adminhome {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 30px;
+
+  /* Matching your screenshot gradient */
+  background: linear-gradient(
+    to bottom,
+    #8ba3ff 0%,
+    #9ab0ff 40%,
+    #b6e3ef 100%
+  );
+
+  color: #0b1b2b;
+  box-sizing: border-box;
+}
+
+/* Heading */
+#adminhome > h1 {
+  margin: 0 0 35px 0;
+  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  text-align: left;
+  color: #061731;
+}
+
+/* -------- Container Grid -------- */
+#adminhomecontainer {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: 10px; /* It aligns nicely near your sidebar */
+  display: grid;
+
+  gap: 25px;
+
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* -------- Each Card -------- */
+.adminhometask {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 14px;
+  padding: 20px 18px;
+  min-height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+
+/* Hover effect */
+.adminhometask:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+}
+
+/* Titles */
+.adminhometask p:first-child {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #344054;
+  margin: 0;
+}
+
+/* Numbers */
+.adminhometask p:nth-child(2) {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #061731;
+  margin: 0;
+}
+
+/* Emoji */
+.adminhometask p:nth-child(3) {
+  font-size: 1.8rem;
+  margin: 0;
+  transition: 0.25s ease;
+}
+
+/* Emoji hover enlarge */
+.adminhometask:hover p:nth-child(3) {
+  transform: scale(1.15);
+}
+
+/* Prevent text overflow */
+.adminhometask * {
+  word-break: break-word;
+}
+
+/* -------- Mobile Optimization -------- */
+@media (max-width: 850px) {
+  #adminhome {
+    padding: 28px 18px;
+  }
+
+  #adminhomecontainer {
+    margin-left: 0;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .adminhometask {
+    min-height: 130px;
+    padding: 16px;
+  }
+
+  .adminhometask p:first-child {
+    font-size: 0.95rem;
+  }
+
+  .adminhometask p:nth-child(2) {
+    font-size: 1.6rem;
+  }
+
+  .adminhometask p:nth-child(3) {
+    font-size: 1.5rem;
+  }
+}

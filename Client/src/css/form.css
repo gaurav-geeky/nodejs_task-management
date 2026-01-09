@@ -1,0 +1,274 @@
+/* Remove horizontal scrolling everywhere */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden !important;
+}
+
+/* Prevent child elements from breaking layout */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* PAGE BG */
+.loginbody {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../assets/bgtm6.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#loghead {
+  color: white;
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-left: 20px;
+}
+
+/* MAIN FLEX
+   ⭐ FIXED: changed align-items to 'stretch' so both columns have same height.
+   This lets us vertically center content inside the left column relative to the form.
+*/
+#logcontain {
+  margin: 2rem auto;
+  width: 95%;
+  max-width: 1200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  /* ⭐ FIXED: was flex-start; now children match height */
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+/* LEFT SIDE
+   We make this a column and center its children vertically.
+   That centers the image+text relative to the form height.
+*/
+.loginwelcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* ⭐ FIXED: centers vertically */
+  align-items: flex-start;
+  /* keep text left-aligned */
+  gap: 1rem;
+  padding-left: 6px;
+  /* small breathing space from left edge */
+}
+
+/* LEFT IMAGE
+   Controlled size, responsive; keeps aspect ratio.
+*/
+.loginwelcome img {
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.45));
+}
+
+/* TEXT BELOW IMAGE
+   Keep it left-aligned and on one line on wide screens.
+   If page gets narrow, it will wrap naturally.
+*/
+.loginwelcome>div p {
+  font-size: 1.3rem;
+  color: white;
+  white-space: nowrap;
+  /* keep single line on desktop */
+  margin-top: 8px;
+  text-align: left;
+}
+
+/* FORM + HEADING */
+.formwrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* TITLE ABOVE FORM */
+#formtitle {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* FORM
+   Keep label/input left-aligned by using align-items:flex-start.
+*/
+.loginform {
+  background: white;
+  width: 380px;
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  align-items: flex-start;
+}
+
+#loginlogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#loginlogo img {
+  width: 45px;
+}
+
+#tasky {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #005eff;
+}
+
+.welcome {
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.loglabel {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.loginput {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+}
+
+#btnlog {
+  background-color: #0062ff;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 12px;
+  width: 150px;
+  align-self: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE
+   On smaller screens we remove the nowrap (so text can wrap)
+   and remove vertical centering so layout is normal stacked flow.
+*/
+@media (max-width: 992px) {
+  #logcontain {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginwelcome img {
+    width: 290px;
+  }
+
+  /* For tablet: allow text lines to wrap and align start */
+  .loginwelcome>div p {
+    white-space: normal;
+    text-align: left;
+  }
+
+  /* remove centering so top-to-bottom order is natural */
+  .loginwelcome {
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  #loghead {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .loginwelcome img {
+    width: 230px;
+  }
+
+  .loginform {
+    width: 92%;
+    align-items: flex-start;
+  }
+
+  #formtitle {
+    text-align: center;
+  }
+
+  /* mobile: keep text left aligned but allow wrapping */
+  .loginwelcome>div p {
+    white-space: normal;
+  }
+
+  .loginwelcome {
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+}
+
+
+/* ===============================
+   NOTES (where I fixed things)
+   - In #logcontain I changed align-items to 'stretch' so both left and right columns
+     take the same height (this allows vertical centering of the left column).
+     Comment: /* ⭐ FIXED: ... 
+   - In .loginwelcome I added display:flex; flex-direction:column; justify-content:center;
+     so the image + text block centers vertically inside that column.
+   - On tablet/mobile I revert .loginwelcome to justify-content:flex-start so stacking looks natural.
+   - No JSX changes required.
+   =============================== */
+
+
+
+
+
+
+
+
+/*    menu bar highlight the current option  */
+
+/* Active menu highlight */
+
+#empmenu a.empactive-menu {
+  background-color: white !important;
+  color: black !important;
+  border: 2px solid white;
+  transform: scale(1.05);
+  transition: 0.25s ease-in-out;
+}
+
+#adminmenu a.adminactive-menu {
+  background-color: white !important;
+  color: var(--blue1) !important;
+  border: 2px solid white;
+  transform: scale(1.05);
+  transition: 0.25s ease-in-out;
+}

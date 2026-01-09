@@ -1,0 +1,49 @@
+.assign-page {
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* CARD */
+.table-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* TABLE */
+.assign-table thead th {
+  background: #4f46e5;
+  color: white;
+  padding: 14px;
+  font-size: 0.95rem;
+  border: none;
+}
+
+.assign-table tbody td {
+  padding: 14px;
+  vertical-align: middle;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* BUTTON */
+.assign-btn {
+  background-color: #22c55e;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 8px;
+}
+
+.assign-btn:hover {
+  background-color: #16a34a;
+}

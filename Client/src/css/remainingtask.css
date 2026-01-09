@@ -1,0 +1,86 @@
+/* Remaining Task Header */
+.remaining-header {
+  background: #fff7e6;
+  padding: 25px;
+  border-left: 6px solid #ff8c00;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.remaining-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.remaining-subtitle {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #666;
+}
+
+/* Table Container */
+.remaining-table-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Head */
+.remaining-task-table thead {
+  background: #ff8c00;
+  color: white;
+  height: 55px;
+  font-size: 16px;
+}
+
+/* Hover Row Effect */
+.remaining-task-table tbody tr {
+  transition: 0.3s;
+}
+
+.remaining-task-table tbody tr:hover {
+  background-color: rgba(255, 140, 0, 0.1);
+  transform: scale(1.01);
+}
+
+/* Priority Tag Styling */
+.priority-tag {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+}
+
+.priority-tag.low {
+  background: #1abc9c;
+}
+
+.priority-tag.medium {
+  background: #f1c40f;
+}
+
+.priority-tag.high {
+  background: #e74c3c;
+}
+
+/* Send Report Button */
+.send-report-btn {
+  background: #ff8c00;
+  border: none;
+  padding: 6px 14px;
+  color: white;
+  font-weight: 600;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.send-report-btn:hover {
+  background: #e67e00;
+  transform: scale(1.05);
+}

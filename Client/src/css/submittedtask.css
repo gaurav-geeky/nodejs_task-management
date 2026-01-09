@@ -1,0 +1,71 @@
+/* Submitted Task Header */
+.submitted-header {
+  background: #e1d2f8;
+  padding: 5px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  border-left: 6px solid #7b2ff7;
+  border-right: 6px solid #7b2ff7;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.submitted-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #333;
+}
+
+.submitted-subtitle {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #666;
+}
+
+/* Table Container */
+.submitted-table-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+/* Table Design */
+.submitted-task-table thead {
+  background: #00c6ff;
+  color: white;
+  height: 55px;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.submitted-task-table tbody tr {
+  transition: 0.3s ease;
+}
+
+.submitted-task-table tbody tr:hover {
+  background: rgba(0, 198, 255, 0.08);
+  transform: scale(1.01);
+}
+
+/* Priority Tag Styling */
+.priority-tag {
+  padding: 5px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  color: white;
+  font-weight: 600;
+}
+
+.priority-tag.low {
+  background: #1abc9c;
+}
+
+.priority-tag.medium {
+  background: #f39c12;
+}
+
+.priority-tag.high {
+  background: #e74c3c;
+}
