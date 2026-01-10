@@ -50,7 +50,7 @@ const Setting = () => {
 
                 {/* TITLE */}
                 <h1 className="text-3xl font-semibold text-center text-white">
-                    Change Password
+                    Change Password 
                 </h1>
                 <p className="text-center text-gray-200 mt-2 mb-10">
                     Update your admin login password securely.
