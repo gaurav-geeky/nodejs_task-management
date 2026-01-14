@@ -1,14 +1,19 @@
 
 
 const AdminModel = require('../Model/adminModel');
-const UserPassword = require('../middleware/randomPassword');
-// mailer.js
 
+const RandomPass = require('../middleware/randomPassword');
+// nodemail and random password
 const emailSend = require('../middleware/empMail');
+
 const EmpModel = require('../Model/empModel');
 const empModel = require('../Model/empModel');
 const taskModel = require('../Model/taskModel');
 const adminModel = require('../Model/adminModel');
+
+// jwt and bcrypt
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 
 const adminLogin = async (req, res) => {
@@ -32,24 +37,28 @@ const adminLogin = async (req, res) => {
 // create new employee
 const userCreate = async (req, res) => {
     const { empname, empmail, designation } = req.body;
-    const emppass = UserPassword.myPassword()  // random password 
+    const randompass = RandomPass.myPassword()  // random password
 
-    console.log("pass generated : ", UserPassword.myPassword());
+    const hashpass = await bcrypt.hash(randompass, 10);  // hash password
+
+    console.log(`RANDOM EMP TM pass generated : " ${randompass}`);
     res.send("User created successfully !");
 
-    emailSend.userNodeMail(empname, empmail, emppass); // sending mail
+    emailSend.userNodeMail(empname, empmail, randompass); // sending mail
 
-    // Now, usercreate after send user his details 
+    // Now, usercreate 
     const Employee = await EmpModel.create({
         name: empname,
         email: empmail,
         designation: designation,
-        password: emppass,
+        password: hashpass,
     })
-    console.log('empname : ', empname, 'empmail : ', empmail, 'emppass : ', emppass);
+    console.log('empname : ', empname, 'empmail : ', empmail, 'emppass : ', randompass);
 
     res.status(201).send("user Successfully crreated !!");
 }
+
+
 
 // disply employee to give task
 const empDisplay = async (req, res) => {

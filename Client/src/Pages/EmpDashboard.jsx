@@ -1,14 +1,42 @@
+import axios from "axios";
 import React from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 const EmpDashboard = () => {
-    const empname = localStorage.getItem("empname");
     const navigate = useNavigate();
+    const mytoken = localStorage.getItem("emptoken");
+    const [user, setUser] = useState(null);
 
     const logout = () => {
         localStorage.clear();
         navigate("/");
     };
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            if (!mytoken) {
+                navigate("/");
+                console.log("no verified token"); 
+                return;
+            }
+            try {
+                console.log(`my verified token : ${mytoken}`);
+                const api = `${import.meta.env.VITE_BACK_URL}/employee/auth`; 
+
+                const res = await axios.get(api, {
+                    headers: { "auth-token": mytoken }
+                });
+                setUser(res.data.employee);
+            } 
+            catch (error) {
+                navigate("/");
+            }
+        };
+
+        fetchUser();
+    }, [mytoken]);
+
 
     return (
         <div className="flex h-screen overflow-hidden bg-gray-100">
@@ -101,8 +129,12 @@ const EmpDashboard = () => {
                     </div>
                     <div className="flex justify-center items-center gap-4 mx-3">
                         <div className="text-sm font-semibold">
-                            Welcome, <span className="text-blue-600">{empname}</span>
+                            Welcome,
+                            <span className="text-blue-600"> {user?.name} , {user?.designation}
+
+                            </span>
                         </div>
+                        {/*  welcome user */}
 
                         <button
                             onClick={logout}

@@ -7,7 +7,7 @@ const userNodeMail = (uname, uemail, upass) => {
         service: "gmail",
         auth: {
             user: "gauravnegi.geeky@gmail.com",
-            pass: "orzy nfbt qjam nwwf",
+            pass: "ynax qrca cwab smfb",
         },
     });
 
@@ -16,7 +16,7 @@ const userNodeMail = (uname, uemail, upass) => {
         from: "gauravnegi.geeky@gmail.com",
         to: uemail,
         subject: "Mailing through Nodemailer",
-        text: `Hello, Dear ${uname}, Your password is ${upass}, \n you can login through Email and Password Both. `,
+        text: `Hello, Dear ${uname}, Your password is ${upass} \n you can login through Email and Password Both. `,
         // html: "<b>Hello!</b> This is a <i>test</i> email."
     };
 

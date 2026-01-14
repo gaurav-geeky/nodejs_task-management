@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/form.css"
@@ -21,6 +21,7 @@ const Form = () => {
         console.log("Env value:", import.meta.env.VITE_BACK_URL);
 
         if (usertype === "admin") {
+            //  admin login 
             try {
                 let api = `${import.meta.env.VITE_BACK_URL}/admin/login`;
                 const response = await axios.post(api, { email, password });
@@ -38,6 +39,7 @@ const Form = () => {
             }
         }
         else {
+            // employee login 
             try {
                 let api = `${import.meta.env.VITE_BACK_URL}/employee/login`;
                 const response = await axios.post(api, { email, password });
@@ -48,7 +50,12 @@ const Form = () => {
                 localStorage.setItem("empid", response.data.employee._id);
                 localStorage.setItem("empPass", response.data.employee.password);
 
-                toast.success(`Welcome ${response.data.employee.name}`);
+                // jwt token set
+                localStorage.setItem("emptoken", response.data.token);
+                console.log(response.data);
+
+                toast.success(`Welcome ${response.data.employee.name}`);  // welcome msg
+
                 navigate("/emp-dashboard");
             }
             catch (error) {
@@ -56,6 +63,34 @@ const Form = () => {
             }
         }
     }
+
+    // const Auth = async () => {
+    //     if (!mytoken) return;
+
+    //     let api = `${import.meta.env.VITE_BACK_URL}/employee/auth`;
+
+    //     const response = await axios.get(api, {
+    //         headers: { "auth-token": mytoken }
+    //     });
+    //     alert(response.data.msg);
+    //     console.log(response.data.employee);
+    //     navigate("/emp-dashboard");
+    // }
+
+    // useEffect(() => {
+    //     Auth();
+    // }, []);
+
+    useEffect(() => {
+        const mytoken = localStorage.getItem("emptoken");
+        if (mytoken) {
+            navigate("/emp-dashboard");
+        }
+        
+    }, []);
+
+
+
 
     return (
         <>
