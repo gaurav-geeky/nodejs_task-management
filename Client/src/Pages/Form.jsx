@@ -64,22 +64,6 @@ const Form = () => {
         }
     }
 
-    // const Auth = async () => {
-    //     if (!mytoken) return;
-
-    //     let api = `${import.meta.env.VITE_BACK_URL}/employee/auth`;
-
-    //     const response = await axios.get(api, {
-    //         headers: { "auth-token": mytoken }
-    //     });
-    //     alert(response.data.msg);
-    //     console.log(response.data.employee);
-    //     navigate("/emp-dashboard");
-    // }
-
-    // useEffect(() => {
-    //     Auth();
-    // }, []);
 
     useEffect(() => {
         const mytoken = localStorage.getItem("emptoken");
