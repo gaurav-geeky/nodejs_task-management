@@ -12,7 +12,6 @@ import AdminHome from './Admin/AdminHome'
 import Report from './Admin/Report'
 import Setting from './Admin/Setting'
 
-
 // employee
 import EmpDashboard from './Pages/EmpDashboard'
 import MyTask from './Pages/MyTask'

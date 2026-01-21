@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import "../css/mytask.css";
 
@@ -21,10 +21,29 @@ const MyTask = () => {
     loadData();
   }, []);
 
-  const filteredData = mydata.filter((each) =>
-    each.task.toLowerCase().includes(search.toLowerCase())
-  );
+  const searchData = search.trim() === "" ?
+    mydata : 
+    mydata.filter((each) =>
+      each.task.toLowerCase().includes(search.toLowerCase())
+    ); 
 
+  let ans = searchData.map((task, index) => (
+    <tr key={task.id}>
+      <td>{index + 1}</td>
+      <td>{task.task}</td>
+      <td>{task.duration}</td>
+      <td>
+        <span
+          className={`priority-tag ${task.priority.toLowerCase()
+            }`}
+        >
+          {task.priority}
+        </span>
+      </td>
+    </tr>
+  )); 
+
+  
   return (
     <>
       <div className="emp-task-header ">
@@ -33,7 +52,11 @@ const MyTask = () => {
         <div className="flex items-center gap-2">
           <input
             className="w-72 px-2 py-2 border mx-3  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
-            type="text" />
+            type="text"
+            placeholder="Search text ..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
           <div>Search</div>
         </div>
 
@@ -51,21 +74,7 @@ const MyTask = () => {
           </thead>
 
           <tbody>
-            {filteredData.map((task, index) => (
-              <tr key={task.id}>
-                <td>{index + 1}</td>
-                <td>{task.task}</td>
-                <td>{task.duration}</td>
-                <td>
-                  <span
-                    className={`priority-tag ${task.priority.toLowerCase()
-                      }`}
-                  >
-                    {task.priority}
-                  </span>
-                </td>
-              </tr>
-            ))}
+            {ans}
           </tbody>
         </Table>
       </div>
