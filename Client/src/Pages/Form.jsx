@@ -38,20 +38,24 @@ const Form = () => {
                 toast.warning(error.response.data.msg);
             }
         }
+        // employee
         else {
             // employee login 
             try {
                 let api = `${import.meta.env.VITE_BACK_URL}/employee/login`;
                 const response = await axios.post(api, { email, password });
 
+                // jwt token set .. 
+                // no need to set user token will do it .
+                localStorage.setItem("emptoken", response.data.token);
+                
                 localStorage.setItem("empname", response.data.employee.name);
                 localStorage.setItem("empemail", response.data.employee.email);
                 localStorage.setItem("empdesignation", response.data.employee.designation);
                 localStorage.setItem("empid", response.data.employee._id);
-                localStorage.setItem("empPass", response.data.employee.password);
+                localStorage.setItem("empPass", response.data.employee.password); 
+                
 
-                // jwt token set
-                localStorage.setItem("emptoken", response.data.token);
                 console.log(response.data);
 
                 toast.success(`Welcome ${response.data.employee.name}`);  // welcome msg
@@ -70,7 +74,6 @@ const Form = () => {
         if (mytoken) {
             navigate("/emp-dashboard");
         }
-        
     }, []);
 
 

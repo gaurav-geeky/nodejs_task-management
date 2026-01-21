@@ -28,7 +28,7 @@ const MyTask = () => {
   return (
     <>
       <div className="emp-task-header">
-        <h1 className="emp-title">My Task Details</h1>
+        <h1 className="emp-title">My All Task Details</h1>
       </div>
 
       <div className="emp-table-container">

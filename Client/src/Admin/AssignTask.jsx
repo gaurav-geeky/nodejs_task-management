@@ -43,7 +43,7 @@ const AssignTask = () => {
       setShow(false);
       setTaskData({});
     } catch (err) {
-      toast.error("Task assign failed");
+      toast.error("Task assign failed"); 
     }
   };
 
