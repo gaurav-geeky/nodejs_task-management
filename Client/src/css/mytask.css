@@ -1,5 +1,8 @@
 /* Page Title */
 .emp-task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
   background: linear-gradient(90deg, #7b2ff7, #00c6ff);
   padding: 15px;
   border-radius: 12px;

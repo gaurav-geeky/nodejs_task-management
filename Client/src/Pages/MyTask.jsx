@@ -27,8 +27,16 @@ const MyTask = () => {
 
   return (
     <>
-      <div className="emp-task-header">
+      <div className="emp-task-header ">
         <h1 className="emp-title">My All Task Details</h1>
+
+        <div className="flex items-center gap-2">
+          <input
+            className="w-72 px-2 py-2 border mx-3  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+            type="text" />
+          <div>Search</div>
+        </div>
+
       </div>
 
       <div className="emp-table-container">
@@ -50,9 +58,8 @@ const MyTask = () => {
                 <td>{task.duration}</td>
                 <td>
                   <span
-                    className={`priority-tag ${
-                      task.priority.toLowerCase()
-                    }`}
+                    className={`priority-tag ${task.priority.toLowerCase()
+                      }`}
                   >
                     {task.priority}
                   </span>

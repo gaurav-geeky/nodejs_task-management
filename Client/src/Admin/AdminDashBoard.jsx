@@ -95,24 +95,17 @@ const AdminDashBoard = () => {
             {/* ================= MAIN AREA ================= */}
             <main className="flex-1 flex flex-col">
                 {/* TOP BAR */}
-                <header className="h-16 bg-white border-b flex items-center justify-between py-5 ">
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="w-72 px-4 py-2 border mx-3  rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                    />
-
-                    <div className="flex items-center gap-4 mx-3">
-
-                        <div className="text-sm text-right">
-                            <div className="font-semibold text-gray-800">
-                                {adminname}
-                            </div>
-                            <div className="text-gray-500">
-                                {adminemail}
-                            </div>
+                <header className="flex justify-between items-center bg-gray-200 shadow py-3">
+                    <div className="text-sm mx-3">
+                        <div className="font-semibold text-gray-800">
+                            {adminname}
                         </div>
+                        <div className="text-gray-500">
+                            {adminemail}
+                        </div>
+                    </div>
 
+                    <div className="mx-3">
                         <button
                             onClick={logout}
                             className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"

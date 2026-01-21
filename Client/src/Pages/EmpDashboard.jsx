@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
@@ -17,18 +18,18 @@ const EmpDashboard = () => {
         const fetchUser = async () => {
             if (!mytoken) {
                 navigate("/");
-                console.log("no verified token"); 
+                console.log("no verified token");
                 return;
             }
             try {
                 console.log(`my verified token : ${mytoken}`);
-                const api = `${import.meta.env.VITE_BACK_URL}/employee/auth`; 
+                const api = `${import.meta.env.VITE_BACK_URL}/employee/auth`;
 
                 const res = await axios.get(api, {
                     headers: { "auth-token": mytoken }
                 });
                 setUser(res.data.employee);
-            } 
+            }
             catch (error) {
                 navigate("/");
             }
@@ -118,24 +119,17 @@ const EmpDashboard = () => {
             <div className="flex-1">
 
                 {/* TOP BAR */}
-                <header className="flex justify-between items-center bg-white shadow py-4">
+                <header className="flex justify-between items-center bg-white shadow py-3">
 
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                            className="w-72 px-4 py-2 border mx-3  rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                        />
+                    <div className="mx-3 text-lg font-semibold">
+                        {/* welcome user */}
+                        Welcome,
+                        <span className="text-blue-600"> {user?.name} , {user?.designation}
+
+                        </span>
                     </div>
-                    <div className="flex justify-center items-center gap-4 mx-3">
-                        <div className="text-sm font-semibold">
-                            Welcome,
-                            <span className="text-blue-600"> {user?.name} , {user?.designation}
 
-                            </span>
-                        </div>
-                        {/*  welcome user */}
-
+                    <div className="mx-3">
                         <button
                             onClick={logout}
                             className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md"
@@ -156,3 +150,7 @@ const EmpDashboard = () => {
 };
 
 export default EmpDashboard;
+
+
+
+

@@ -49,11 +49,11 @@ const Form = () => {
                 // no need to set user token will do it .
                 localStorage.setItem("emptoken", response.data.token);
                 
-                localStorage.setItem("empname", response.data.employee.name);
-                localStorage.setItem("empemail", response.data.employee.email);
-                localStorage.setItem("empdesignation", response.data.employee.designation);
+                // localStorage.setItem("empname", response.data.employee.name);
+                // localStorage.setItem("empemail", response.data.employee.email);
+                // localStorage.setItem("empdesignation", response.data.employee.designation);
                 localStorage.setItem("empid", response.data.employee._id);
-                localStorage.setItem("empPass", response.data.employee.password); 
+                // localStorage.setItem("empPass", response.data.employee.password); 
                 
 
                 console.log(response.data);

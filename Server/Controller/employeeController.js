@@ -26,9 +26,9 @@ const empLogin = async (req, res) => {
     return res.status(200).send({
         employee: employee,
         msg: "user login successfull",
-        token
-    });
-}
+        token 
+    }); 
+} 
 
 const empAuth = async (req, res) => {
     const token = req.header("auth-token");
@@ -48,7 +48,6 @@ const empAuth = async (req, res) => {
         console.log(error)
     }
 }
-
 
 
 const showTask = async (req, res) => {
