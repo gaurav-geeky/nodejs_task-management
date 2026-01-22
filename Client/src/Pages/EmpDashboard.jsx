@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 const EmpDashboard = () => {
+    
     const navigate = useNavigate();
     const mytoken = localStorage.getItem("emptoken");
     const [user, setUser] = useState(null);

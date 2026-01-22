@@ -1,8 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
+
+
 const EmpHome = () => {
     const [mydata, setmydata] = useState([]);
+    const navigate = useNavigate();
 
     const loadData = async () => {
         try {
@@ -38,28 +42,36 @@ const EmpHome = () => {
             <div className="grid grid-cols-4 justify-items-center p-4">
 
                 {/* Total */}
-                <div className="bg-gradient-to-br from-indigo-50 to-indigo-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2">
+                <div className="bg-gradient-to-br from-indigo-50 to-indigo-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2 cursor-pointer"
+                    onClick={() => navigate("showemptasks")}>
+
                     <div className="text-5xl">📋</div>
                     <div className="text-lg font-semibold text-gray-600 mt-3">Total Tasks</div>
                     <p className="text-5xl font-extrabold text-indigo-600 mt-2">{mydata.length}</p>
                 </div>
 
                 {/* Completed */}
-                <div className="bg-gradient-to-br from-green-50 to-green-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2">
+                <div className="bg-gradient-to-br from-green-50 to-green-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2 cursor-pointer"
+                    onClick={() => navigate("showemptasks?status=FullyCompleted")}>
+
                     <div className="text-5xl">✅</div>
                     <div className="text-lg font-semibold text-gray-600 mt-3">Completed</div>
                     <p className="text-5xl font-extrabold text-green-600 mt-2">{compTask}</p>
                 </div>
 
                 {/* Incomplete */}
-                <div className="bg-gradient-to-br from-red-50 to-red-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2">
+                <div className="bg-gradient-to-br from-red-50 to-red-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2 cursor-pointer"
+                    onClick={() => navigate("showemptasks?status=NoCompleted")}>
+
                     <div className="text-5xl">❌</div>
                     <div className="text-lg font-semibold text-gray-600 mt-3">Incomplete</div>
                     <p className="text-5xl font-extrabold text-red-600 mt-2">{nocompTask}</p>
                 </div>
 
                 {/* Partial */}
-                <div className="bg-gradient-to-br from-yellow-50 to-yellow-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2">
+                <div className="bg-gradient-to-br from-yellow-50 to-yellow-200 shadow-lg rounded-2xl text-center hover:scale-105 transition-transform duration-300 w-60 p-2 cursor-pointer"
+                    onClick={() => navigate("showemptasks?status=PartialCompleted")}>
+
                     <div className="text-5xl">🤏</div>
                     <div className="text-lg font-semibold text-gray-600 mt-3">Partially Completed</div>
                     <p className="text-5xl font-extrabold text-yellow-600 mt-2">{partialtask}</p>
@@ -110,6 +122,7 @@ const EmpHome = () => {
                     </div>
                 </div>
             </div>
+
         </section>
     );
 };

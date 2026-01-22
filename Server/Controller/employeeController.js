@@ -26,9 +26,9 @@ const empLogin = async (req, res) => {
     return res.status(200).send({
         employee: employee,
         msg: "user login successfull",
-        token 
-    }); 
-} 
+        token
+    });
+}
 
 const empAuth = async (req, res) => {
     const token = req.header("auth-token");
@@ -41,7 +41,7 @@ const empAuth = async (req, res) => {
 
         res.status(200).json({
             msg: `ok emp ${employee.name} has verified token`,
-            employee, 
+            employee,
         });
     }
     catch (error) {
@@ -81,8 +81,29 @@ const changePassword = async (req, res) => {
     const changepass = await empModel.findByIdAndUpdate(empId, {
         password: newpass
     });
-    res.status(201).send({ mypass: changepass, msg: "Emp Pass changed successfully !!" });
-}
+    res.status(201).send({ mypass: changepass, msg: "Emp Pass changed successfully !!" }); 
+} 
+
+const getEmployeeTasks = async (req, res) => {
+    try {
+        // get emp id from query
+        const { id } = req.query;
+
+        if (!id) {
+            return res.status(400).json({ msg: "Employee id required" });
+        }
+        // fetch all tasks of employee
+        const tasks = await TaskModel.find({ empid: id });
+
+        return res.status(200).json(tasks);
+    }
+    catch (error) {
+        return res.status(500).json({
+            msg: "Failed to fetch tasks",
+            error: error.message
+        });
+    }
+};
 
 
 module.exports = {
@@ -92,5 +113,6 @@ module.exports = {
     taskReport,
     empData,
     changePassword,
+    getEmployeeTasks,
 
 }

@@ -22,6 +22,8 @@ import Settings from './Pages/Settings'
 
 import { ToastContainer, toast } from 'react-toastify';
 
+import ShowTasks from './Pages/ShowTasks'
+
 
 function App() {
   return (
@@ -38,7 +40,6 @@ function App() {
 
       <Routes>
         <Route path="admin-dashboard" element={<AdminDashBoard />}>
-
           <Route index element={<AdminHome />} />
           <Route path='create-user' element={<CreateUser />} />
           <Route path='assign-task' element={<AssignTask />} />
@@ -49,13 +50,14 @@ function App() {
 
 
       <Routes>
-        <Route path="emp-dashboard" element={<EmpDashboard />}>
-
+        <Route path="emp-dashboard" element={<EmpDashboard />}
+        >
           <Route index element={<EmpHome />} />
           <Route path='mytask' element={<MyTask />} />
           <Route path='submitedtask' element={<SubmittedTask />} />
           <Route path='remainingTask' element={<RemainingTasks />} />
           <Route path='settings' element={<Settings />} />
+          <Route path='showemptasks' element={<ShowTasks />} />
 
         </Route>
       </Routes >

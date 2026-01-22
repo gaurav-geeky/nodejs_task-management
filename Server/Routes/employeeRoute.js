@@ -11,7 +11,7 @@ route.get("/showtask", EmpController.showTask);   // my task
 route.put("/taskreport", EmpController.taskReport);  // remaining task, show
 route.get("/empdata", EmpController.empData);
 route.post("/changepass", EmpController.changePassword); // setting
-
+route.get("/emptaskdata", EmpController.getEmployeeTasks);
 
 module.exports = route; 
 

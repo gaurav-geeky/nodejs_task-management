@@ -15,7 +15,11 @@ const RemainingTasks = () => {
   const [taskduration, setTaskDuration] = useState("");
   const [taskId, setTaskId] = useState("");
 
+  const [search, setSearch] = useState("");
+
+
   const handleClose = () => setShow(false);
+  
   const handleShow = (tid) => {
     setTaskId(tid);
     setShow(true);
@@ -54,14 +58,58 @@ const RemainingTasks = () => {
     }
   };
 
+  const searchdata = search.trim() === "" ?
+    mydata :
+    mydata.filter((each) =>
+      each.task.toLowerCase().includes(search.toLowerCase())
+    );
+
+  let ans = searchdata
+    .filter((task) => !task.submitstatus)
+    .map((task, index) => (
+      <tr key={task._id}>
+        <td>{index + 1}</td>
+        <td>{task.task}</td>
+        <td>{task.duration}</td>
+        <td>
+          <span
+            className={`priority-tag ${task.priority.toLowerCase()}`}
+          >
+            {task.priority}
+          </span>
+        </td>
+        <td>
+          <button
+            className="send-report-btn"
+            onClick={() => handleShow(task._id)}
+          >
+            Send Report
+          </button>
+        </td>
+      </tr>
+    ))
+
   return (
     <>
       {/* Header Card */}
       <div className="remaining-header">
-        <h1 className="remaining-title">Remaining Tasks</h1>
-        <p className="remaining-subtitle">
-          Tasks you still need to complete and submit ⏳
-        </p>
+        <div>
+          <h1 className="remaining-title">Remaining Tasks</h1>
+          <p className="remaining-subtitle">
+            Tasks you still need to complete and submit ⏳
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <input
+            className="w-72 px-2 py-2 border mx-3  rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
+            type="text"
+            placeholder="Search text ..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+
       </div>
 
       {/* Table */}
@@ -78,33 +126,11 @@ const RemainingTasks = () => {
           </thead>
 
           <tbody>
-            {mydata
-              .filter((task) => !task.submitstatus)
-              .map((task, index) => (
-                <tr key={task._id}>
-                  <td>{index + 1}</td>
-                  <td>{task.task}</td>
-                  <td>{task.duration}</td>
-                  <td>
-                    <span
-                      className={`priority-tag ${task.priority.toLowerCase()}`}
-                    >
-                      {task.priority}
-                    </span>
-                  </td>
-                  <td>
-                    <button
-                      className="send-report-btn"
-                      onClick={() => handleShow(task._id)}
-                    >
-                      Send Report
-                    </button>
-                  </td>
-                </tr>
-              ))}
+            {ans}
           </tbody>
         </Table>
       </div>
+
 
       {/* Report Modal */}
       <Modal show={show} onHide={handleClose}>
