@@ -30,7 +30,9 @@ const EmpHome = () => {
         <section className="pt-1 ">
 
             {/* Title Section */}
-            <div className="text-4xl font-bold text-gray-900 text-center !mt-[12px] ">
+            <div className="text-4xl font-bold text-gray-900 text-center "
+            style={{ marginTop: "12px"}}
+            >
                 Employee Dashboard
             </div>
             <p className="text-gray-500 text-center mt-2 mb-12">
